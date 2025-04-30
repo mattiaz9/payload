@@ -15,6 +15,23 @@ export default buildConfigWithDefaults({
   // ...extend config here
   collections: [PostsCollection, MediaCollection],
   admin: {
+    components: {
+      graphics: {
+        Logo: {
+          path: './components/assets/brand#Logo',
+          clientProps: {
+            height: 32,
+          },
+        },
+        Icon: {
+          path: './components/assets/brand#Symbol',
+          clientProps: {
+            width: 20,
+            height: 20,
+          },
+        },
+      },
+    },
     importMap: {
       baseDir: path.resolve(dirname),
     },
