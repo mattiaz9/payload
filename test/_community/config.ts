@@ -40,6 +40,21 @@ export default buildConfigWithDefaults({
       },
     })
   },
+  localization: {
+    defaultLocale: 'en',
+    locales: [
+      {
+        code: 'en',
+        label: 'English',
+      },
+      {
+        code: 'es',
+        label: 'Spanish',
+      },
+    ],
+    fallback: true,
+    defaultLocalePublishOption: 'active',
+  },
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },

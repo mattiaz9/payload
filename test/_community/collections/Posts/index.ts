@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { lexicalEditor, UploadFeature } from '@payloadcms/richtext-lexical'
 
 export const postsSlug = 'posts'
 
@@ -17,9 +17,17 @@ export const PostsCollection: CollectionConfig = {
     {
       name: 'content',
       type: 'richText',
+      localized: true,
       editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [...defaultFeatures],
+        features: ({ defaultFeatures }) => [...defaultFeatures, UploadFeature()],
       }),
     },
   ],
+  versions: {
+    drafts: {
+      autosave: false,
+      schedulePublish: false,
+    },
+    maxPerDoc: 50,
+  },
 }
